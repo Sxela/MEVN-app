@@ -2,7 +2,7 @@
   "name": "mevn_server",
   "version": "0.1.0",
   "description": "basic mevn server",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "author": "sxela",
   "license": "MIT",
   "scripts": {
@@ -12,6 +12,7 @@
     "nodemon": "^1.18.7"
   },
   "dependencies": {
+    "@types/node": "^10.12.10",
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
     "express": "^4.16.4",

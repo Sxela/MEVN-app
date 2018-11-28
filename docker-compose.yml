@@ -1,0 +1,30 @@
+
+version: '2'
+services:
+  transpiler:
+    build: ./server
+
+    volumes_from:
+      - server
+ 
+    command: tsc -w --outDir dist/ ./src/index.ts
+
+
+  server:
+    build: ./server
+    ports:
+       - "8081:8081"
+    volumes:
+      - .:/app            # share your code with the containers
+      - /app/server/dist         # container has its own dist directory
+      - /app/server/node_modules # container has its own node_modules directory
+
+    command: nodemon -w dist/ dist/index.js
+
+  data:
+    image: mongo
+    ports:
+       - "27017:27017"
+
+
+    
